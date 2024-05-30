@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import abcdatoz.code.daggerhiltshippuden.ui.theme.DaggerHiltShippudenTheme
+import abcdatoz.code.daggerhiltshippuden.ui.villas.VillasScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +27,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     //HomeScreen()
-                    ClanesScreen()
+                    //ClanesScreen()
+                    VillasScreen()
 
 
                 }

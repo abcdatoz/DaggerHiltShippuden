@@ -6,5 +6,7 @@ class Constants {
         const val BASE_URL = "https://dattebayo-api.onrender.com/"
 
         const val CLANS_ENDPOINT = "clans"
+
+        const val VILLAGES_ENDPOINT = "villages"
     }
 }
