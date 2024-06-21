@@ -1,7 +1,9 @@
 package abcdatoz.code.daggerhiltshippuden.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Village(
-    val characters: List<Int>,
-    val id: Int,
-    val name: String
+    @SerializedName("characters") val characters: List<Int>,
+    @SerializedName("id") val id: Int,
+    @SerializedName("name") val villita: String
 )

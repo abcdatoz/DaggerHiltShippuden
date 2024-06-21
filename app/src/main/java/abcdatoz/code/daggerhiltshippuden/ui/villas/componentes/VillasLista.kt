@@ -67,7 +67,7 @@ fun VillasLista(
                     }
                     Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                         Text(
-                            "${it.name}",
+                            "${it.villita}",
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,

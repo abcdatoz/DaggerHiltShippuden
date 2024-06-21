@@ -1,7 +1,9 @@
-package abcdatoz.code.daggerhiltshippuden.ui.home
+package abcdatoz.code.daggerhiltshippuden.ui.characters
 
-import abcdatoz.code.daggerhiltshippuden.data.model.Clan
-
+import abcdatoz.code.daggerhiltshippuden.ui.characters.CharactersViewModel
+import abcdatoz.code.daggerhiltshippuden.data.model.Character
+import abcdatoz.code.daggerhiltshippuden.ui.clanes.ClanesViewModel
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,51 +16,44 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
-
-
-
 @Composable
-fun HomeScreen(){
+fun CharactersScreen(modifier: Modifier = Modifier){
+        val vm = viewModel (modelClass = CharactersViewModel::class.java)
 
-//    val homeVM = viewModel (modelClass = HomeViewModel::class.java)
-//
-//    val clans by homeVM.clans.collectAsState()
-//    //Log.e("qwe", clans.toString())
-//
-//    LazyColumn {
-//        items (clans){clan ->
-//            LeCard(clan)
-//        }
-//    }
 
-    Column {
-        Text("123")
+    val registros by vm.personajes.collectAsState()
+
+    Log.d("qwe", registros.toString())
+
+    LazyColumn {
+        items (registros) { xx ->
+            LeCard(item = xx)
+        }
     }
-
-
-    
 }
 
 
 
-
 @Composable
-fun LeCard(item: Clan){
+fun LeCard(item: Character){
     Card(
         shape = RoundedCornerShape(5.dp),
         modifier = Modifier
-            .padding(5.dp)
+            .padding(horizontal = 20.dp, vertical = 10.dp)
             .fillMaxSize()
     ){
         Column{
             Text("image")
             Column  (modifier = Modifier.padding(10.dp)){
                 Text(item.name)
-                Text("contiene :${ item.characters.count() } personajes")
-                Text(item.id.toString())
+                Text("contiene :${ item.jutsu.size } jutsus")
+                Text("contiene :${ item.tools.size } tools")
+                Text("contiene :${ item.images.size } imagenes")
+
             }
         }
     }

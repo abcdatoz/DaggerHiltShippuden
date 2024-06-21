@@ -1,0 +1,78 @@
+
+
+PROFESSIONAL PROFILE
+programmer with more than 20 years of experience in software development using different
+programming languages ​​(C#, Javascript, Typescript, Python and Ruby on Rails).
+My experience ranges from developing desktop applications, web applications and
+rest-apis development. I like to be
+constantly learning new languages, frameworks, tools and paradigms
+programming. I am currently learning mobile development with  Kotlin language and
+Fundamentals for developing smart contracts with solidity.
+
+
+
+STRENGTHS
+* technical skills in programming, design software and architecture
+* Mastery of languages programming, databases and Data structures.
+* Adaptability, ease and desire to learn new technologies and tools
+* Team work and collaboration with other engineers and managers project
+* Commitment to learning continuous and development professional
+
+Lenguajes de Programación
+* C# 
+* Javascript 
+* TypeScript
+* Python 
+* Kotlin
+
+Bases de Datos
+* MS Sql Server 
+* MySQL
+* PostgreSQL 
+* FireBase
+
+Tecnologías Web
+* HTML * CSS * GIT
+
+EXPERIENCE
+Programmer analyst
+Organo de Fiscalización del Estado de Veracruz  2015 - Present
+.
+I developed 19 new modules for the SIGMAVER state accounting system
+I supported the installation of the platform (IIS and SQLserver) for more than 300 users of the
+SIGMAVER
+Training and advice to users in the use of SIGMAVER
+I migrated the Sigmaver-Auditor system from its desktop version to a web application
+I developed a user control system
+I currently maintain other systems of ORFIS.
+.
+Stack: C#, Sql Server, AngularJS, React, Bootstrap and Git.
+
+
+Programmer analyst
+Secretaria de Finanzas del Estado de Veracruz 2014 - 2015
+.
+I collaborated in the development of a budget allocation system for public works
+of state agencies
+.
+stack: C# .NET, SQL Server, MVC
+
+Executive Software Developer
+Velasco Asesores S.C. 2002 - 2013
+.
+I worked developing desktop applications, systematizing administrative processes
+implemented in the following systems: Acquisitions, Vehicle Control, Accounting,
+Modules for the Payroll system,
+Office of parties, Public works, Billing and Collection of security services, Budgets and a Billing and Collection System for Water Consumption.
+.
+stack: Visual Basic, C#, SQL Server, Ruby on Rails (in a billing system in 2007) and
+Crystal Reports
+
+
+EDUCACIÓN
+Licenciado en Informática
+Universidad Veracruzana 1997 - 2001
+Técnico en Informática Administrativa
+CBTis #165 1994 - 1997
+Programador Analista
+Instituto Tecnológico Rooselvelt 1993 - 1994

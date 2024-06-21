@@ -1,5 +1,6 @@
 package abcdatoz.code.daggerhiltshippuden.di
 
+import abcdatoz.code.daggerhiltshippuden.data.network.CharacterApi
 import abcdatoz.code.daggerhiltshippuden.data.network.ClansApi
 import abcdatoz.code.daggerhiltshippuden.data.network.VillagesApi
 import abcdatoz.code.daggerhiltshippuden.utils.Constants.Companion.BASE_URL
@@ -25,7 +26,6 @@ object RetrofitModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
     @Singleton
     @Provides
     fun provideClansApi(retrofit: Retrofit): ClansApi{
@@ -36,5 +36,11 @@ object RetrofitModule{
     @Provides
     fun provideVillagesApi(retrofit: Retrofit): VillagesApi{
         return retrofit.create(VillagesApi:: class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCharacterApi(retrofit: Retrofit): CharacterApi{
+        return retrofit.create(CharacterApi::class.java)
     }
 }

@@ -8,5 +8,7 @@ class Constants {
         const val CLANS_ENDPOINT = "clans"
 
         const val VILLAGES_ENDPOINT = "villages"
+
+        const val TAILEDBEASTS_ENDPOINT = "tailed-beasts"
     }
 }

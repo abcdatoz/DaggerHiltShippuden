@@ -1,5 +1,6 @@
 package abcdatoz.code.daggerhiltshippuden.ui.clanes
 
+
 import abcdatoz.code.daggerhiltshippuden.data.model.Clan
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
