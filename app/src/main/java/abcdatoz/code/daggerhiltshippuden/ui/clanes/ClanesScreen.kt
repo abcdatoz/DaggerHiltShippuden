@@ -2,6 +2,8 @@ package abcdatoz.code.daggerhiltshippuden.ui.clanes
 
 
 import abcdatoz.code.daggerhiltshippuden.data.model.Clan
+import abcdatoz.code.daggerhiltshippuden.data.viewmodels.ClanViewModel
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,26 +13,57 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
-
 @Composable
-fun ClanesScreen(modifier: Modifier = Modifier){
+fun ClanesScreen(
+     vm: ClanViewModel = viewModel(),
+    modifier: Modifier = Modifier
+){
 
-    val clanVM = viewModel (modelClass = ClanesViewModel::class.java)
+    var state  by remember {
+        mutableStateOf<List<Clan>>(emptyList())
+    }
 
-    val clanes by clanVM.clans.collectAsState()
+    LaunchedEffect (Unit){
+        try{
+            val registros = vm.getData().clans
 
-    LazyColumn {
-        items (clanes) { klan ->
-            LeCard(item = klan)
+            state = registros
+
+        }catch (e:Exception){}
+    }
+
+    LazyColumn ()
+    {
+        state?.let { lista ->
+            items(lista){klan ->
+                LeCard(klan)
+
+            }
         }
     }
+
+
+//this way have so many error at loadindg, even crash tehe app
+//    val clanVM = viewModel (modelClass = ClanesViewModel::class.java)//
+//    val clanes by clanVM.clans.collectAsState()//
+//    LazyColumn {
+//        clanes?.let {lista ->
+//            items (lista) { klan ->
+//                LeCard(item = klan)
+//            }
+//        }
+//    }
 
 
 

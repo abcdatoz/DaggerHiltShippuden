@@ -25,7 +25,7 @@ fun NinjasScreen(modifier: Modifier = Modifier) {
 
         NinjaList(modifier = Modifier.weight(1f))
 
-        SubMenu(lista = opcionesSubmenu)
+//        SubMenu(lista = opcionesSubmenu)
     }
 }
 

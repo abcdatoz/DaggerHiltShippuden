@@ -1,6 +1,8 @@
 package abcdatoz.code.daggerhiltshippuden
 
+import abcdatoz.code.daggerhiltshippuden.ui.Scaffold.ScaffoldA
 import abcdatoz.code.daggerhiltshippuden.ui.characters.CharactersScreen
+import abcdatoz.code.daggerhiltshippuden.ui.clanes.ClanesScreen
 import abcdatoz.code.daggerhiltshippuden.ui.home.HomeScreen
 import abcdatoz.code.daggerhiltshippuden.ui.kards.CardExample
 import abcdatoz.code.daggerhiltshippuden.ui.ninjas.NinjasScreen
@@ -40,7 +42,10 @@ class MainActivity : ComponentActivity() {
                     //ScreenC()
                     //CardExample()
 
-                    NinjasScreen()
+                    //NinjasScreen()
+
+
+                    ScaffoldA()
 
 
                 }
