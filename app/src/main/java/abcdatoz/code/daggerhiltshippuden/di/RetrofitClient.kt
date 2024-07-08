@@ -19,4 +19,5 @@ object RetrofitClient {
     val characterService: CharacterService by lazy { retrofit.create(CharacterService::class.java) }
 
 
+
 }

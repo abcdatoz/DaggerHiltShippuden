@@ -4,6 +4,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+
+
 }
 
 android {
@@ -56,7 +58,6 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    //implementation("androidx.core:core-ktx:1.12.0")
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -69,14 +70,10 @@ dependencies {
     //retrofit 2
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    //coil
-    //implementation ("io.coil-kt:coil-compose:1.4.0")
 
     implementation ("io.coil-kt:coil-compose:2.4.0")
 
     //viewmodel
-    //implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
-    //implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
@@ -85,7 +82,7 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.50")
     implementation(libs.androidx.runtime.livedata)
     implementation(libs.androidx.navigation.compose)
-    //implementation(libs.androidx.material3.android)
+
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")

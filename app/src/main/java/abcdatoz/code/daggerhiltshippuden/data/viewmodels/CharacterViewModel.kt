@@ -1,5 +1,6 @@
 package abcdatoz.code.daggerhiltshippuden.data.viewmodels
 
+import abcdatoz.code.daggerhiltshippuden.data.model.Character
 import abcdatoz.code.daggerhiltshippuden.data.model.CharacterModel
 import abcdatoz.code.daggerhiltshippuden.di.RetrofitClient
 import androidx.lifecycle.ViewModel
@@ -14,6 +15,12 @@ class CharacterViewModel : ViewModel(){
 
         return withContext(Dispatchers.IO){
             characterService.getPersonajes()
+        }
+    }
+
+    suspend fun getOne(id: String): Character {
+        return withContext(Dispatchers.IO){
+            characterService.getNinja(id)
         }
     }
 }

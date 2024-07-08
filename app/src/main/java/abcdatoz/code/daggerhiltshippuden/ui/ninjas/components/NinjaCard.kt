@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -35,9 +36,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NinjaCard(
     item: Character ,
+    onCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
 
@@ -45,7 +48,8 @@ fun NinjaCard(
     Card(
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(20.dp),
-        modifier = modifier.padding(horizontal = 16.dp)
+        modifier = modifier.padding(horizontal = 16.dp),
+        onClick = onCardClick
         ) {
         Column(modifier = Modifier.background(Color(0xFFE57373))) {
             Row(

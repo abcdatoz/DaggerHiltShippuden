@@ -23,7 +23,7 @@ fun NinjasScreen(modifier: Modifier = Modifier) {
     ) {
         Text("Header")
 
-        NinjaList(modifier = Modifier.weight(1f))
+        //NinjaList(modifier = Modifier.weight(1f))
 
 //        SubMenu(lista = opcionesSubmenu)
     }

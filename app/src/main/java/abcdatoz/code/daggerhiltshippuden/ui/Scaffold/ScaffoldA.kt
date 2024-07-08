@@ -54,7 +54,7 @@ fun ScaffoldA(modifier: Modifier = Modifier) {
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
-                title = { Text("Top gun") }
+                title = { Text("Top gun....") }
 
             )
         },

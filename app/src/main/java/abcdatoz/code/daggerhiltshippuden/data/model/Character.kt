@@ -1,6 +1,5 @@
 package abcdatoz.code.daggerhiltshippuden.data.model
 
-import android.os.Parcelable
 
 
 data class Character(
