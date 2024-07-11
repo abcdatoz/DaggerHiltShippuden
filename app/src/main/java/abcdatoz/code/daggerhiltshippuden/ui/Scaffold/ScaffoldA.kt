@@ -78,7 +78,7 @@ fun ScaffoldA(modifier: Modifier = Modifier) {
                     OutlinedButton(onClick = { navController.navigate(Routes.Ninjas.route) }) {
                         Text("Ninjas")
                     }
-                    OutlinedButton(onClick = { }) {
+                    OutlinedButton(onClick = { navController.navigate(Routes.Firebase.route) }) {
                         Text("Exit ->")
                     }
                 }

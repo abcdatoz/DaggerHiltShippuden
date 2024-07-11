@@ -5,4 +5,6 @@ sealed class Routes (val route: String){
     object Clanes: Routes("ClanesScreen")
     object Ninjas: Routes("NinjasScreen")
     object NinjaOne: Routes("NinjaOne")
+
+    object Firebase: Routes("FirebaseScreen")
 }

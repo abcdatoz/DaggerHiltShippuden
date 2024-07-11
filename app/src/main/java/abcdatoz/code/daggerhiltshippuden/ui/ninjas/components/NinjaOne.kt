@@ -1,6 +1,7 @@
 package abcdatoz.code.daggerhiltshippuden.ui.ninjas.components
 
 import abcdatoz.code.daggerhiltshippuden.data.model.Character
+import abcdatoz.code.daggerhiltshippuden.data.model.Family
 import abcdatoz.code.daggerhiltshippuden.data.viewmodels.CharacterViewModel
 import android.util.Log
 import androidx.compose.foundation.background
@@ -14,12 +15,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -61,6 +66,10 @@ fun NinjaOne(
         mutableStateOf<Character?>(null)
     }
 
+    var tabId by remember {
+        mutableStateOf(0)
+    }
+
     LaunchedEffect(Unit) {
 
         try {
@@ -78,25 +87,54 @@ fun NinjaOne(
             NinjaHeader(ninja = it, navigation = navigation)
         }
 
+        Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Button(onClick = { tabId = 0 }) {
+                Text("Jutsus")
+            }
+            Button(onClick = { tabId = 1 }) {
+                Text("Nature Types")
+            }
+
+            Button(onClick = { tabId = 2 }) {
+                Text("Tools")
+            }
+
+            Button(onClick = { tabId = 3 }) {
+                Text("Family")
+            }
+
+
+        }
 
         LazyColumn(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(16.dp)) {
 
             state?.let { chunnin ->
 
-                item {
 
-
-                }
-
-                if (chunnin.jutsu.size > 0) {
+                if (chunnin.jutsu.size > 0 && tabId == 0) {
                     item {
                         JutsusList(lista = chunnin.jutsu)
                     }
                 }
 
-                if (chunnin.natureType.size > 0) {
+                if (chunnin.natureType.size > 0 && tabId == 1) {
                     item {
                         NatureTypeList(lista = chunnin.natureType)
+                    }
+                }
+
+                if (chunnin.tools.size > 0 && tabId == 2) {
+                    item {
+                        ToolsList(lista = chunnin.tools)
+                    }
+                }
+
+
+                if (tabId == 3) {
+                    chunnin.family?.let { fam ->
+                        item {
+                            GenealogicTree(chunnin.name, fam)
+                        }
                     }
                 }
 
@@ -191,7 +229,6 @@ fun NinjaHeader(ninja: Character, navigation: NavController, modifier: Modifier 
                     modifier = Modifier.clip(CircleShape)
 
 
-
                 )
             }
         }
@@ -241,5 +278,167 @@ fun NatureTypeList(lista: List<String>) {
                 modifier = Modifier.padding(start = 20.dp)
             )
         }
+    }
+}
+
+
+@Composable
+fun ToolsList(lista: List<String>) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        Text("Tools", fontSize = 25.sp, color = Color.Black)
+        Spacer(modifier = Modifier.height(8.dp))
+
+        lista.forEach { tool ->
+            Text(
+                tool,
+                color = Color.Gray,
+                fontSize = 16.sp,
+                modifier = Modifier.padding(start = 20.dp)
+            )
+        }
+    }
+}
+
+
+@Composable
+fun GenealogicTree(me: String, family: Family) {
+
+
+    var lineA = listOf("", "", "", "greatGrandfather", "")
+    var lineB = listOf("", "", "grandfather", "", "grandmother")
+    var lineC = listOf("", "mother", "", "", "")
+    var lineD = listOf("", "", "brother", "sister", "")
+    var lineE = listOf("", "father", "", "uncle", "aunt")
+    var lineF = listOf("me", "", "", "", "nephew")
+    var lineG = listOf("lover", "wife", "", "", "niece")
+    var lineH = listOf("", "", "daughter", "", "")
+    var lineI = listOf("pet", "", "", "grandson", "granddaughter")
+    var lineJ = listOf("", "", "son", "", "")
+
+
+    var greats = listOf("greatGrandfather")
+    var grandpas = listOf("grandfather", "grandmother")
+    var parents = listOf("father", "mother")
+    var sibblings = listOf("brother", "sister")
+
+    var lovers = listOf("wife", "lover")
+    var child = listOf("daughter", "son")
+    var grandchild = listOf("granddaughter", "grandson")
+
+    var auntanduncle = listOf("uncle", "aunt")
+    var primos = listOf("niece", "nephew")
+    var pet = listOf("pet")
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Top
+    ) {
+
+
+        AddLine(header = "Greats", elements = greats, family = family)
+        AddLine(header = "GrandParents", elements = grandpas, family = family)
+        AddLine(header = "Parents", elements = parents, family = family)
+        AddLine(header = "Sibblings", elements = sibblings, family = family)
+        AddLine(header = "Lovers", elements = lovers, family = family)
+        AddLine(header = "Child", elements = child, family = family)
+        AddLine(header = "GrandChild", elements = grandchild, family = family)
+        AddLine(header = "uncles", elements = auntanduncle, family = family)
+        AddLine(header = "primos", elements = primos, family = family)
+
+
+    }
+}
+
+@Composable
+fun AddLine(header: String, elements: List<String>, family: Family) {
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .width(120.dp)
+                .height(50.dp)
+                .padding(10.dp)
+                .background(color = Color.LightGray, shape = CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+
+            Text(header, fontSize = 13.sp)
+        }
+
+        elements.forEach { element ->
+
+
+            val valor = family::class.java
+                .getDeclaredField(element)
+                .apply { isAccessible = true }
+                .get(family)
+
+            Box(contentAlignment = Alignment.Center) {
+                valor?.let {
+                    Column(
+                        verticalArrangement = Arrangement.Top
+                    ) {
+
+                        Text(it.toString(), fontSize = 16.sp)
+                        Text("( ${element} )", color = Color.Gray, fontSize = 13.sp)
+
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+@Composable
+fun AddRow(lista: List<String>, family: Family, me: String = "") {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+
+
+        lista.forEach { element ->
+
+            if (element == "") {
+                Box(modifier = Modifier.size(50.dp)) {
+                    Text("")
+                }
+            } else if (element == "me") {
+                Box(modifier = Modifier.size(50.dp)) {
+                    Text(me, color = Color.Green)
+                }
+            } else {
+                val valor =
+                    family::class.java.getDeclaredField(element).apply { isAccessible = true }
+                        .get(family)
+
+                Box(modifier = Modifier.size(50.dp)) {
+                    valor?.let {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.Top
+                        ) {
+
+                            Text(it.toString().length.toString(), fontSize = 12.sp)
+
+                            Text("( ${element} )", fontSize = 12.sp, color = Color.Gray)
+                        }
+
+                    }
+                }
+            }
+
+        }
+
     }
 }

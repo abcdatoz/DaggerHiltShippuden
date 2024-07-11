@@ -10,6 +10,7 @@ import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenA
 import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenABC
 import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenB
 import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenC
+import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenD
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
 
 
                     ScaffoldA()
+                    //ScreenD()
 
 
                 }
