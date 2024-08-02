@@ -4,6 +4,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
+
 
 
 }
@@ -82,6 +84,7 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.50")
     implementation(libs.androidx.runtime.livedata)
     implementation(libs.androidx.navigation.compose)
+    //implementation(libs.firebase.database.ktx)
 
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
@@ -89,6 +92,12 @@ dependencies {
 
     val nav_version = "2.5.3"
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

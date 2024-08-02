@@ -7,4 +7,6 @@ sealed class Routes (val route: String){
     object NinjaOne: Routes("NinjaOne")
 
     object Firebase: Routes("FirebaseScreen")
+
+    object NotesScreen: Routes("NotesScreen")
 }

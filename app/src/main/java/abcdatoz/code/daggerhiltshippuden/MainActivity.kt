@@ -1,16 +1,6 @@
 package abcdatoz.code.daggerhiltshippuden
 
-import abcdatoz.code.daggerhiltshippuden.ui.Scaffold.ScaffoldA
-import abcdatoz.code.daggerhiltshippuden.ui.characters.CharactersScreen
-import abcdatoz.code.daggerhiltshippuden.ui.clanes.ClanesScreen
-import abcdatoz.code.daggerhiltshippuden.ui.home.HomeScreen
-import abcdatoz.code.daggerhiltshippuden.ui.kards.CardExample
-import abcdatoz.code.daggerhiltshippuden.ui.ninjas.NinjasScreen
-import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenA
-import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenABC
-import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenB
-import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenC
-import abcdatoz.code.daggerhiltshippuden.ui.screens.ScreenD
+import abcdatoz.code.daggerhiltshippuden.myRestaurant.Navigation.MainScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,14 +9,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import abcdatoz.code.daggerhiltshippuden.ui.theme.DaggerHiltShippudenTheme
-import abcdatoz.code.daggerhiltshippuden.ui.villas.VillasScreen
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
 
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
+    private lateinit var analytics:FirebaseAnalytics
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        analytics = Firebase.analytics
+
         setContent {
             DaggerHiltShippudenTheme {
 
@@ -46,8 +44,10 @@ class MainActivity : ComponentActivity() {
                     //NinjasScreen()
 
 
-                    ScaffoldA()
+                    //ScaffoldA(analytics)
                     //ScreenD()
+
+                    MainScreen()
 
 
                 }

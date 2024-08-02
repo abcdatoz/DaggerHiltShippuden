@@ -38,11 +38,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
+import com.google.firebase.analytics.logEvent
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScaffoldA(modifier: Modifier = Modifier) {
+fun ScaffoldA(analitycs: FirebaseAnalytics, modifier: Modifier = Modifier) {
 
 
     val navController = rememberNavController()
@@ -68,18 +72,42 @@ fun ScaffoldA(modifier: Modifier = Modifier) {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    OutlinedButton(onClick = { navController.navigate(Routes.Clanes.route) }) {
+                    OutlinedButton(onClick = {
+                        analitycs.logEvent("user_navigate"){
+                            param("valor1","to_clanes_screen")
+                        }
+                        navController.navigate(Routes.Clanes.route)
+                    }) {
                         Text("Clanes")
                     }
-                    OutlinedButton(onClick = { navController.navigate(Routes.Villas.route) }) {
+                    OutlinedButton(onClick = {
+                        analitycs.logEvent("user_navigate"){
+                            param("valor1","to_villas_screen")
+                        }
+
+                        navController.navigate(Routes.Villas.route)
+                    }) {
                         Text("Villas")
                     }
 
-                    OutlinedButton(onClick = { navController.navigate(Routes.Ninjas.route) }) {
+                    OutlinedButton(onClick = {
+
+                        analitycs.logEvent("user_navigate"){
+                            param("valor1","to_chunning_screen")
+                        }
+
+                        navController.navigate(Routes.Ninjas.route)
+                    }) {
                         Text("Ninjas")
                     }
+
+
                     OutlinedButton(onClick = { navController.navigate(Routes.Firebase.route) }) {
-                        Text("Exit ->")
+                        Text("Realtime")
+                    }
+
+                    OutlinedButton(onClick = {  navController.navigate(Routes.NotesScreen.route)  }) {
+                        Text("Firestore")
                     }
                 }
             }
@@ -106,5 +134,7 @@ fun ScaffoldA(modifier: Modifier = Modifier) {
 @Composable
 @Preview(showBackground = true)
 fun ScaffoldAPreview() {
-    ScaffoldA()
+
+    val analitycs = Firebase.analytics
+    ScaffoldA(analitycs)
 }

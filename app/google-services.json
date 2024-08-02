@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711718651934",
+    "project_id": "daggerhiltshippuden",
+    "storage_bucket": "daggerhiltshippuden.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711718651934:android:25313a20321f716b60060f",
+        "android_client_info": {
+          "package_name": "abcdatoz.code.daggerhiltshippuden"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI4nmODZUyooNFx5AjM-8b0veIotJmXRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

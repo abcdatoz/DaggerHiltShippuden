@@ -39,13 +39,13 @@ fun ScreenD(modifier: Modifier = Modifier){
         }
 
         if (isVisible){
-            Box(modifier.size(200.dp).background(color = Color.DarkGray)){
+            Box(modifier.size(100.dp).background(color = Color.DarkGray)){
                 Text("componente Gris")
             }
         }
 
         if (!isVisible){
-            Box(modifier.size(200.dp).background(color = Color.Magenta )){
+            Box(modifier.size(100.dp).background(color = Color.Blue )){
                 Text("componente no gris")
             }
         }

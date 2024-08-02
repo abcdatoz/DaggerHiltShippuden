@@ -2,6 +2,7 @@ package abcdatoz.code.daggerhiltshippuden.ui.Navigation
 
 import abcdatoz.code.daggerhiltshippuden.ui.clanes.ClanesScreen
 import abcdatoz.code.daggerhiltshippuden.ui.firebase.FirebaseScreen
+import abcdatoz.code.daggerhiltshippuden.ui.firebase.NotesScreen
 import abcdatoz.code.daggerhiltshippuden.ui.ninjas.components.NinjaList
 import abcdatoz.code.daggerhiltshippuden.ui.ninjas.components.NinjaOne
 import abcdatoz.code.daggerhiltshippuden.ui.villas.LeVille
@@ -49,6 +50,11 @@ fun Navigation(
 
         composable( route = Routes.Firebase.route ){
             FirebaseScreen()
+        }
+
+
+        composable(Routes.NotesScreen.route){
+            NotesScreen()
         }
 
 
